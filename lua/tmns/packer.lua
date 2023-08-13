@@ -10,13 +10,6 @@ return require("packer").startup(function(use)
 	-- Simple plugins can be specified as strings
 	use("rstacruz/vim-closer")
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
-		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -84,5 +77,11 @@ return require("packer").startup(function(use)
 				--
 			})
 		end,
+	})
+	use("nvim-tree/nvim-web-devicons")
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 end)

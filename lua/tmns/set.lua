@@ -53,3 +53,6 @@ vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.winminwidth = 5 -- Minimum window width
 
 vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+
+-- Limit amount of files shown in old files
+vim.opt.shada = "!,'20,f1,<50,s10,h"
