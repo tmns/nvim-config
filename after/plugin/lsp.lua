@@ -142,8 +142,20 @@ cmp.setup({
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+
 		-- `Tab` key to confirm completion
-		["<tab>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+			elseif require("luasnip").expand_or_jumpable() then
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
 
 		-- Ctrl+Space to trigger completion menu
 		["<C-Space>"] = cmp.mapping.complete(),
