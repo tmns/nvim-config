@@ -2,8 +2,15 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-	"tsserver",
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"tsserver",
+		"vimls",
+		"lua_ls",
+		"tailwindcss",
+		"cssls",
+		"html",
+	},
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -74,6 +81,7 @@ lsp.format_on_save({
 			"scss",
 			"markdown",
 			"mdx",
+			"json",
 		},
 	},
 })
