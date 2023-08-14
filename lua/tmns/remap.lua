@@ -31,8 +31,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Prev location" })
 
 -- Prev file
-vim.keymap.set("n", "<C-;>", "<C-^>", { desc = "Prev file" })
-vim.keymap.set("i", "<C-;>", "<esc><C-^>", { desc = "Prev file" })
+vim.keymap.set("n", "<C-\\>", "<C-^>", { desc = "Prev file" })
+vim.keymap.set("i", "<C-\\>", "<esc><C-^>", { desc = "Prev file" })
 
 -- Search word under cursor
 vim.keymap.set({ "n", "x" }, "gw", "*N")
