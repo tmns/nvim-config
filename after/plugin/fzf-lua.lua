@@ -4,8 +4,35 @@ fzf.setup({
 	buffers = {
 		ignore_current_buffer = true,
 		sort_lastused = true,
+		file_ignore_patterns = {
+			"node_modules/",
+			".next/",
+			".git/",
+			"build/",
+			"out/",
+			"pnp/",
+			"DS_Store",
+			".yarn/cache",
+			".*ttf$",
+			".*svg$",
+			"_fresh/",
+		},
 	},
-	file_ignore_patterns = { "node_modules", ".next", ".git" },
+	files = {
+		rg_opts = "--color=never --files --hidden --follow --no-ignore",
+		fd_opts = "--color=never --type f --hidden --follow --no-ignore",
+		file_ignore_patterns = {
+			"node_modules/",
+			".next/",
+			".git/",
+			"build/",
+			"out/",
+			"pnp/",
+			"DS_Store",
+			".*ttf$",
+			"_fresh/",
+		},
+	},
 })
 
 vim.keymap.set("n", "<leader><leader>", fzf.files, { desc = "Find files" })
