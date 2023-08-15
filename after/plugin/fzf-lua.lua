@@ -83,3 +83,8 @@ vim.keymap.set("n", "<leader>sm", fzf.marks, { desc = "Search marks" })
 vim.keymap.set("n", "<leader>sh", fzf.search_history, { desc = "Search search history" })
 vim.keymap.set("n", "<leader>st", fzf.tmux_buffers, { desc = "List tmux buffers" })
 vim.keymap.set("n", "<leader>sq", fzf.quickfix, { desc = "List tmux buffers" })
+
+vim.keymap.set("n", "<leader>ghs", fzf.git_status, { desc = "Git status" })
+vim.keymap.set("n", "<leader>ghc", fzf.git_commits, { desc = "Git commits" })
+vim.keymap.set("n", "<leader>ghb", fzf.git_branches, { desc = "Git branches" })
+vim.keymap.set("n", "<leader>ghx", fzf.git_stash, { desc = "Git stash" })
