@@ -25,8 +25,11 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste w/o losing text" })
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete w/o copying" })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete w/o copying" })
 vim.keymap.set("n", "<leader>x", '"_x', { desc = "Delete single char w/o copying" })
+vim.keymap.set("n", "c", '"_c', { desc = "C-Delete w/o copying" })
+vim.keymap.set("v", "c", '"_c', { desc = "C-Delete w/o copying" })
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "q", "<nop>")
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Prev location" })
