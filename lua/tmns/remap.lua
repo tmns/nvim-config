@@ -28,8 +28,11 @@ vim.keymap.set("n", "x", '"_x', { desc = "Delete single char w/o copying" })
 vim.keymap.set("n", "c", '"_c', { desc = "C-Delete w/o copying" })
 vim.keymap.set("v", "c", '"_c', { desc = "C-Delete w/o copying" })
 
+-- No-ops
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q", "<nop>")
+vim.keymap.set("n", "<enter>", "<nop>")
+vim.keymap.set("n", "<tab>", "<nop>")
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Prev location" })
