@@ -52,7 +52,6 @@ return require("packer").startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-pack/nvim-spectre")
 	use("lewis6991/gitsigns.nvim")
-	use("f-person/git-blame.nvim")
 	use("RRethy/vim-illuminate")
 	use("echasnovski/mini.bufremove")
 	use("echasnovski/mini.surround")
@@ -85,4 +84,13 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 	use("justinmk/vim-sneak")
+	use("tpope/vim-fugitive")
+	use("tpope/vim-rhubarb")
+	use({
+		"akinsho/git-conflict.nvim",
+		tag = "*",
+		config = function()
+			require("git-conflict").setup()
+		end,
+	})
 end)
