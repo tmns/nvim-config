@@ -56,3 +56,6 @@ vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 
 -- Limit amount of files shown in old files
 vim.opt.shada = "!,'20,f1,<50,s10,h"
+
+-- Backspace everything
+vim.opt.backspace = "indent,eol,start"
