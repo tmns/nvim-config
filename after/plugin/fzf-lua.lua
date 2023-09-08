@@ -1,6 +1,9 @@
 local fzf = require("fzf-lua")
 
 fzf.setup({
+	winopts = {
+		preview = { default = "bat_native" },
+	},
 	buffers = {
 		ignore_current_buffer = true,
 		sort_lastused = true,
@@ -40,8 +43,8 @@ fzf.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", fzf.git_files, { desc = "Find Git files" })
+vim.keymap.set("n", "<leader>fa", fzf.files, { desc = "Find all files" })
+vim.keymap.set("n", "<leader>ff", fzf.git_files, { desc = "Find Git files" })
 vim.keymap.set("n", "<leader>fr", function()
 	fzf.oldfiles({ cwd_only = true })
 end, { desc = "Find recent (cwd)" })
