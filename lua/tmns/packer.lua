@@ -14,7 +14,6 @@ return require("packer").startup(function(use)
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-context")
-	use("ThePrimeagen/harpoon")
 	use("mbbill/undotree")
 	use({
 		"kdheepak/lazygit.nvim",
@@ -83,14 +82,6 @@ return require("packer").startup(function(use)
 		-- optional for icon support
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
-	use("justinmk/vim-sneak")
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
-	use({
-		"akinsho/git-conflict.nvim",
-		tag = "*",
-		config = function()
-			require("git-conflict").setup()
-		end,
-	})
 end)
