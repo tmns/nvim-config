@@ -70,34 +70,24 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<C-k>", function()
 		vim.lsp.buf.signature_help()
 	end, opts("Signature help"))
-	vim.keymap.set("n", "<leader>cf", function()
-		vim.lsp.buf.format()
-	end, opts("Format"))
 
 	if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
 	end
+
+	client.server_capabilities.documentHighlightProvider = nil
 end)
 
 lsp.format_on_save({
 	format_opts = {
 		async = false,
 		timeout_ms = 10000,
+		filter = function(c)
+			return c ~= "tsserver"
+		end,
 	},
 	servers = {
-		["null-ls"] = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-			"lua",
-			"html",
-			"css",
-			"scss",
-			"markdown",
-			"mdx",
-			"json",
-		},
+		["null-ls"] = { "lua" },
 	},
 })
 
@@ -144,7 +134,6 @@ null_ls.setup({
 	sources = {
 		--- Replace these with the tools you have installed
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettierd,
 	},
 })
 

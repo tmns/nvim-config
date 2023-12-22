@@ -10,10 +10,11 @@ return require("packer").startup(function(use)
 	-- Simple plugins can be specified as strings
 	use("rstacruz/vim-closer")
 
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("projekt0n/github-nvim-theme")
+	use("aktersnurra/no-clown-fiesta.nvim")
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-	use("nvim-treesitter/nvim-treesitter-context")
+	-- use("nvim-treesitter/nvim-treesitter-context")
 	use("mbbill/undotree")
 	use({
 		"kdheepak/lazygit.nvim",
@@ -55,7 +56,7 @@ return require("packer").startup(function(use)
 	use("echasnovski/mini.bufremove")
 	use("echasnovski/mini.surround")
 	use("echasnovski/mini.comment")
-	use("echasnovski/mini.indentscope")
+	-- use("echasnovski/mini.indentscope")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({ "stevearc/dressing.nvim" })
 	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
@@ -84,4 +85,5 @@ return require("packer").startup(function(use)
 	})
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
+	use("prettier/vim-prettier")
 end)

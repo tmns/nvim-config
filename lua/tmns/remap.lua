@@ -22,17 +22,17 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste w/o losing text" })
 
 -- Delete without copying
-vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete w/o copying" })
-vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete w/o copying" })
-vim.keymap.set("n", "x", '"_x', { desc = "Delete single char w/o copying" })
-vim.keymap.set("n", "c", '"_c', { desc = "C-Delete w/o copying" })
-vim.keymap.set("v", "c", '"_c', { desc = "C-Delete w/o copying" })
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o copying" })
+vim.keymap.set({ "n", "v" }, "x", '"_x', { desc = "Delete single char w/o copying" })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { desc = "C-Delete w/o copying" })
 
 -- No-ops
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "<enter>", "<nop>")
 vim.keymap.set("n", "<tab>", "<nop>")
+vim.keymap.set({ "n", "v" }, "s", "<nop>")
+vim.keymap.set({ "n", "v" }, "S", "<nop>")
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Prev location" })
@@ -83,12 +83,8 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-vim.keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-vim.keymap.set("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+vim.keymap.set({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+vim.keymap.set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- Add undo break-points
 vim.keymap.set("i", ",", ",<c-g>u")
@@ -107,3 +103,9 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window he
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+-- Save without formatting
+vim.keymap.set("n", "<leader>ns", "<cmd>noa w<cr>", { desc = "No autocommand save" })
+
+-- Show last error
+vim.keymap.set("n", "<C-e>", "<cmd>:echo v:errmsg<cr>", { desc = "Show last error" })
