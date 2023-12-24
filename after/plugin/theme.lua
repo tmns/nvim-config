@@ -15,7 +15,7 @@ require("github-theme").setup({
 		github_dark_high_contrast = {
 			bracket = "#ffffdd", -- cream
 			syntax = {
-				comment = "#669966", -- dark green
+				comment = "#8b949e", -- dark grey
 				keyword = "#ffaaff", -- magenta
 				operator = "#ffff88", -- pale yellow
 				param = "cyan.bright",

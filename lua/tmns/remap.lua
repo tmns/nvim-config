@@ -18,8 +18,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move down 1/2 page" })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Paste without losing pasted text
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste w/o losing text" })
+-- Better pasting
+vim.keymap.set({ "n", "v", "x" }, "pp", "P", { desc = "Paste w/o losing text" })
+vim.keymap.set({ "n", "v", "x" }, "pP", "p", { desc = "Paste & lose text" })
+vim.keymap.set("n", "piw", "viwP", { desc = "Paste over (w)ord (w/o losing text)" })
+vim.keymap.set("n", "piW", "viWP", { desc = "Paste over (W)ord (w/o losing text)" })
 
 -- Delete without copying
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o copying" })
@@ -109,3 +112,6 @@ vim.keymap.set("n", "<leader>ns", "<cmd>noa w<cr>", { desc = "No autocommand sav
 
 -- Show last error
 vim.keymap.set("n", "<C-e>", "<cmd>:echo v:errmsg<cr>", { desc = "Show last error" })
+
+-- Restart LSP
+vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
