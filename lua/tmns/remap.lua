@@ -56,7 +56,7 @@ vim.keymap.set(
 )
 
 -- Save on ctrl-s
-vim.keymap.set({ "n", "i", "v", "s" }, "<C-s>", "<esc><cmd>w<CR>", { desc = "Save" })
+vim.keymap.set({ "n", "i", "v", "s" }, "S4", "<cmd>w<cr>", { desc = "Save" })
 
 -- Cycle buffers
 vim.keymap.set("n", "H", "<cmd>bp<cr>", { desc = "Prev buffer" })

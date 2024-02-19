@@ -43,12 +43,12 @@ fzf.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>fa", fzf.files, { desc = "Find all files" })
-vim.keymap.set("n", "<leader>ff", fzf.git_files, { desc = "Find Git files" })
+vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find all files" })
+vim.keymap.set("n", "<leader><leader>", fzf.git_files, { desc = "Find Git files" })
 vim.keymap.set("n", "<leader>fr", function()
 	fzf.oldfiles({ cwd_only = true })
 end, { desc = "Find recent (cwd)" })
-vim.keymap.set("n", "<leader><leader>", fzf.buffers, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Find buffers" })
 
 vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>sG", function()
