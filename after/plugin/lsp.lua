@@ -78,18 +78,18 @@ lsp.on_attach(function(client, bufnr)
 	client.server_capabilities.documentHighlightProvider = nil
 end)
 
-lsp.format_on_save({
-	format_opts = {
-		async = false,
-		timeout_ms = 10000,
-		filter = function(c)
-			return c ~= "tsserver"
-		end,
-	},
-	servers = {
-		["null-ls"] = { "lua" },
-	},
-})
+-- lsp.format_on_save({
+-- 	format_opts = {
+-- 		async = false,
+-- 		timeout_ms = 10000,
+-- 		filter = function(c)
+-- 			return c.name == "null-ls"
+-- 		end,
+-- 	},
+-- 	servers = {
+-- 		["null-ls"] = { "lua" },
+-- 	},
+-- })
 
 lsp.set_sign_icons({
 	error = "✘",
@@ -127,8 +127,38 @@ lsp.setup()
 local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
 
+local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
+local event = "BufWritePre" -- or "BufWritePost"
+local async = event == "BufWritePost"
+
 null_ls.setup({
 	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.keymap.set("n", "<Leader>p", "<cmd>Prettier<cr>", { desc = "Format with prettier" })
+
+			-- format on save
+			vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+			vim.api.nvim_create_autocmd(event, {
+				buffer = bufnr,
+				group = group,
+				callback = function()
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+						async = async,
+						filter = function(c)
+							return c.name == "null-ls"
+						end,
+						timeout_ms = 10000,
+					})
+				end,
+				desc = "[lsp] format on save",
+			})
+		end
+
+		if client.supports_method("textDocument/rangeFormatting") then
+			vim.keymap.set("x", "<Leader>p", "<cmd>Prettier<cr>", { desc = "Format with prettier" })
+		end
+
 		null_opts.on_attach(client, bufnr)
 	end,
 	sources = {
