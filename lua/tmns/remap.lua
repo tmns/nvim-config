@@ -55,7 +55,7 @@ vim.keymap.set(
 	{ desc = "Replace word under cursor" }
 )
 
--- Save on ctrl-s
+-- Save on cmd-s
 vim.keymap.set({ "n", "i", "v", "s" }, "S4", "<cmd>w<cr>", { desc = "Save" })
 
 -- Cycle buffers
