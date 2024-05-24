@@ -19,10 +19,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Better pasting
-vim.keymap.set({ "n", "v", "x" }, "pp", "P", { desc = "Paste w/o losing text" })
-vim.keymap.set({ "n", "v", "x" }, "pP", "p", { desc = "Paste & lose text" })
-vim.keymap.set("n", "piw", "viwP", { desc = "Paste over (w)ord (w/o losing text)" })
-vim.keymap.set("n", "piW", "viWP", { desc = "Paste over (W)ord (w/o losing text)" })
+vim.keymap.set("v", "p", "P", { desc = "Paste w/o losing text" })
+vim.keymap.set("v", "P", "p", { desc = "Paste and lose text" })
+vim.keymap.set("n", "<leader>pw", "viwP", { desc = "Paste over (w)ord (w/o losing text)" })
+vim.keymap.set("n", "<leader>pW", "viWP", { desc = "Paste over (W)ord (w/o losing text)" })
 
 -- Delete without copying
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o copying" })

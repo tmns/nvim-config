@@ -26,6 +26,11 @@ lspconfig.tsserver.setup({
 	on_attach = lsp.on_attach,
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
+	init_options = {
+		preferences = {
+			importModuleSpecifierPreference = "non-relative",
+		},
+	},
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -77,19 +82,6 @@ lsp.on_attach(function(client, bufnr)
 
 	client.server_capabilities.documentHighlightProvider = nil
 end)
-
--- lsp.format_on_save({
--- 	format_opts = {
--- 		async = false,
--- 		timeout_ms = 10000,
--- 		filter = function(c)
--- 			return c.name == "null-ls"
--- 		end,
--- 	},
--- 	servers = {
--- 		["null-ls"] = { "lua" },
--- 	},
--- })
 
 lsp.set_sign_icons({
 	error = "✘",
