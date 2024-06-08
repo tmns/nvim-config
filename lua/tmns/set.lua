@@ -52,6 +52,8 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.winminwidth = 5 -- Minimum window width
+vim.opt.showcmd = false -- Hide flashing commands at bottom right of screen (only necessary if `cmdheight` is non-zero but keeping just in case)
+vim.opt.cmdheight = 0 -- Hides the command bar completely
 
 vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 

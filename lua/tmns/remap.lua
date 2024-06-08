@@ -115,3 +115,23 @@ vim.keymap.set("n", "<C-e>", "<cmd>:echo v:errmsg<cr>", { desc = "Show last erro
 
 -- Restart LSP
 vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
+
+-- git-fugitive
+vim.keymap.set("n", "<leader>gho", "<cmd>GBrowse<cr>", { desc = "Open file in GH" })
+vim.keymap.set("v", "<leader>gho", ":'<,'>GBrowse<cr>", { desc = "Open file in GH" })
+
+-- mini-bufremove
+vim.keymap.set("n", "<leader>bd", function()
+	require("mini.bufremove").delete(0, false)
+end, { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bD", function()
+	require("mini.bufremove").delete(0, true)
+end, { desc = "Delete buffer (force)" })
+
+-- spectre
+vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").toggle()<CR>', {
+	desc = "Toggle Spectre",
+})
+
+-- undotree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "UndoTree" })
