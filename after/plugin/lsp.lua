@@ -76,10 +76,6 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.signature_help()
 	end, opts("Signature help"))
 
-	if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
-	end
-
 	client.server_capabilities.documentHighlightProvider = nil
 end)
 
