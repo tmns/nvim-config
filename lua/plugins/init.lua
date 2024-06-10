@@ -2,7 +2,6 @@ return {
 	{ "rstacruz/vim-closer", event = "VeryLazy" },
 	{ "nvim-lua/plenary.nvim", event = "VeryLazy" },
 	{ "mbbill/undotree", event = "VeryLazy" },
-	{ "jose-elias-alvarez/null-ls.nvim" },
 	{ "nvim-pack/nvim-spectre", event = "VeryLazy" },
 	{ "echasnovski/mini.bufremove", event = "VeryLazy" },
 	{ "mg979/vim-visual-multi", branch = "master", event = "VeryLazy" },
